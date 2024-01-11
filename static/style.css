@@ -1,0 +1,132 @@
+:root {
+    --semi-transparent-bg: #292C338A;
+}
+
+html {
+    font-size: 62.5%;
+
+}
+
+body {
+    font-family: 'Cormorant Garamond';
+    background-color: #292C33;
+    color: #FFF;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+h1,
+h2 {
+    font-size: 12.8rem;
+    margin: 0;
+}
+
+#bg-image,
+#bg-gradient {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+}
+
+#bg-image {
+    object-fit: cover;
+    z-index: -2;
+    opacity: 0.8;
+}
+
+#bg-gradient {
+
+    z-index: -3;
+}
+
+#flex-container {
+
+    display: flex;
+}
+
+.image-content {
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    justify-content: space-around;
+}
+
+#sidebar {
+    background: var(--semi-transparent-bg);
+    min-height: 200vh;
+    position: relative;
+    width: 50%;
+
+}
+
+#sidebar-socials {
+    padding: 3rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 50vw;
+    display: flex;
+    justify-content: space-around;
+
+    img {
+        width: 3rem;
+        height: 3rem;
+        color: #FFF;
+
+    }
+}
+
+#beside-sidebar-content {
+    width: 50%;
+}
+
+
+#discover-button {
+    background: #FE9B3385;
+    border: 0;
+    font-family: unset;
+    font-size: 4rem;
+    height: 8rem;
+    width: 35rem;
+
+}
+
+#title,
+#about {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15rem;
+
+    & p {
+        font-size: 1.5rem;
+    }
+
+}
+
+#main-bg {
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    z-index: -15;
+}
+
+#footer {
+    background-color: var(--semi-transparent-bg);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 4rem;
+}
+
+#socials-footer {
+    padding: 2rem;
+
+    & img {
+        padding: 6rem 10rem;
+    }
+}
