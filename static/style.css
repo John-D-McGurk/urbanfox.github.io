@@ -13,13 +13,53 @@ body {
     color: #FFF;
     margin: 0;
     padding: 0;
+    font-weight: 100;
     position: relative;
+    font-size: 2rem;
+
+}
+
+a {
+    font-weight: 900;
+    color: unset;
+    text-decoration: unset;
+}
+
+a:hover {
+    color: #D55D2A;
+}
+
+a img {
+
+    transition: transform 0.5s;
+}
+
+a img:hover {
+    filter: brightness(0) saturate(100%) invert(40%) sepia(94%) saturate(706%) hue-rotate(341deg) brightness(89%) contrast(89%);
+    transform: scale(120%);
+    transition: transform 0.5s;
+}
+
+header {
+    display: flex;
+    justify-content: right;
+    height: 10rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+
+}
+
+.header-img {
+    padding: 3rem;
 }
 
 h1,
 h2 {
     font-size: 12.8rem;
     margin: 0;
+    padding-bottom: 8rem;
 }
 
 #bg-image,
@@ -40,23 +80,49 @@ h2 {
     z-index: -3;
 }
 
-#flex-container {
+.flex-container {
 
     display: flex;
 }
 
 .image-content {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
+
+    & img {
+        max-width: 50%;
+        max-height: 40%;
+    }
+}
+
+#sidebar-bg {
+    background: var(--semi-transparent-bg);
+    min-height: 200vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
 }
 
 #sidebar {
-    background: var(--semi-transparent-bg);
+
     min-height: 200vh;
     position: relative;
     width: 50%;
+
+}
+
+#logo {
+    position: fixed;
+    height: 30rem;
+    left: 25%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s;
+    z-index: 15;
+    filter: invert(100%) brightness(100%);
 
 }
 
@@ -65,16 +131,18 @@ h2 {
     position: fixed;
     bottom: 0;
     left: 0;
+    height: 3rem;
     width: 50vw;
     display: flex;
     justify-content: space-around;
 
-    img {
-        width: 3rem;
-        height: 3rem;
-        color: #FFF;
+}
 
-    }
+#sidebar-socials img {
+
+    height: 3rem;
+    color: #FFF;
+
 }
 
 #beside-sidebar-content {
@@ -89,7 +157,30 @@ h2 {
     font-size: 4rem;
     height: 8rem;
     width: 35rem;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    overflow: hidden;
+}
 
+#discover-button:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 14px;
+    right: -20px;
+    transition: 0.5s;
+}
+
+#discover-button:hover {
+    padding-right: 24px;
+    padding-left: 8px;
+}
+
+#discover-button:hover:after {
+    opacity: 1;
+    right: 30px;
 }
 
 #title,
@@ -101,17 +192,65 @@ h2 {
     align-items: center;
     padding: 0 15rem;
 
-    & p {
-        font-size: 1.5rem;
-    }
 
+}
+
+#title h1 {
+    padding-top: 12rem;
+}
+
+.parallax {
+height: 50rem;
+transform-style: preserve-3d;
+
+}
+
+.parallax-layer {
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat-x;
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+}
+
+#parallax1 {    
+    background-image: url(https://s3-us-west-1.amazonaws.com/contentlab.studiod/getty/959dd9e7451049c59833b3148084901a);
+
+ }
+
+#gallery-heading {
+    padding: 6rem 20rem;
+}
+
+#gallery {
+    padding: 6rem 20rem;
+}
+
+#gallery-images {
+    width: 40%;
+}
+
+#gallery-text {
+    width: 60%;
 }
 
 #main-bg {
     object-fit: cover;
+    width: 100%;
+
+}
+
+#main-bg-container {
+    height: 100%;
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     z-index: -15;
+    overflow: hidden;
 }
 
 #footer {
@@ -120,13 +259,16 @@ h2 {
     bottom: 0;
     width: 100%;
     text-align: center;
-    padding: 4rem;
+    padding: 4rem 0;
 }
 
 #socials-footer {
     padding: 2rem;
 
-    & img {
-        padding: 6rem 10rem;
-    }
+
+}
+
+#socials-footer img {
+    height: 6rem;
+    margin: 6rem 10rem;
 }
