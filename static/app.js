@@ -8,9 +8,7 @@ function scaling() {
   const footer = document.querySelector("#footer");
 
   besideSidebarContent.style.cssText = `padding-top: ${title_section.offsetHeight}px; height: ${about_section.offsetHeight}px`;
-  sidebar.style.height = `${
-    about_section.offsetHeight + title_section.offsetHeight
-  }px`;
+
 
   body.style.paddingBottom = `${footer.offsetHeight}px`;
 }
@@ -87,7 +85,7 @@ function sidebarEffects(sidebar, bg) {
       maskContainer.offsetHeight);
   let maskFadeDistance = maskContainer.offsetHeight - distanceTilMask;
 
-  sidebarBG.style.height = `${maskContainer.offsetHeight}px`;
+  sidebarBG.style.height = `${Math.ceil(maskContainer.offsetHeight) + 1}px`;
   
   if (window.scrollY >= distanceToBGLock) {
     sidebarSocials.style.cssText = `position: absolute; top: ${

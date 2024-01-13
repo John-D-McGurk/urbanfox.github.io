@@ -2,17 +2,23 @@
     --opaque-bg: #292C33;
     --semi-transparent-bg: #292C338A;
     --footer-bg: #1F1F1ECC;
+
+    --button-bg: #FE9B33B2;
+
+
     --white-font: #d9d9d9;
     --black-font: #1f1f1e;
+
+    --Cormorand: 'Cormorant Garamond', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    --Raleway: Raleway, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html {
     font-size: 62.5%;
-
 }
 
 body {
-    font-family: Raleway;
+    font-family: var(--Raleway);
     background-color: var(--opaque-bg);
     color: --black-font;
     margin: 0;
@@ -159,7 +165,17 @@ h2 {
     transition: 1s;
 }
 
-#sidebar h1, h2 {
+#contact-logo {
+    top: 0%;
+    left: 0%;
+    height: 6rem;
+    width: 6rem;
+    transform: translate(1rem, 1rem);
+}
+
+
+#sidebar h1,
+h2 {
     font-weight: 600;
 }
 
@@ -194,22 +210,18 @@ h2 {
     transform: translateX(0);
 }
 
-
-#discover-button {
-    background: #FE9B3385;
+.button {
+    background: var(--button-bg);
     border: 0;
-    font-family: unset;
-    font-size: 4rem;
-    height: 8rem;
-    width: 35rem;
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
+    border-radius: 0.7rem;
+    font-family: unset;  
+    cursor: pointer;   
     overflow: hidden;
+    transition: 0.5s;
+    display: inline-block;
 }
 
-#discover-button:after {
+.button:after {
     content: '»';
     position: absolute;
     opacity: 0;
@@ -218,29 +230,39 @@ h2 {
     transition: 0.5s;
 }
 
-#discover-button:hover {
+.button:hover {
     padding-right: 24px;
     padding-left: 8px;
 }
 
-#discover-button:hover:after {
+.button:hover:after {
     opacity: 1;
     right: 30px;
 }
 
-h1, #discover-button{
+#discover-button {
+    font-size: 4rem;
+    height: 8rem;
+    width: 35rem;
+}
+
+
+
+h1,
+#discover-button {
     opacity: 0;
     transform: translateY(150px);
 }
 
-h1.active, #discover-button.active {
+h1.active,
+#discover-button.active {
     opacity: 1;
     transform: translateY(0);
 }
 
 #title,
 #about {
-    font-family: 'Cormorand Garamont';
+    font-family: var(--Cormorand);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -286,14 +308,12 @@ h1.active, #discover-button.active {
 
 }
 
-.parallax img.active {
-
-}
+.parallax img.active {}
 
 .section-spacing {
     color: #FFF;
     padding: 8rem 20rem;
-    font-family: Raleway;
+    font-family: var(--Raleway);
     font-weight: 100;
 }
 
@@ -304,7 +324,7 @@ h1.active, #discover-button.active {
 #gallery ul {
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-gap: 5rem;
     list-style: none;
 }
@@ -334,6 +354,7 @@ h1.active, #discover-button.active {
 }
 
 #footer {
+    font-family: var(--Cormorand);
     background-color: var(--footer-bg);
     color: var(--white-font);
     position: absolute;
@@ -358,8 +379,117 @@ h1.active, #discover-button.active {
     display: none;
 }
 
+#contact-logo path {
+    fill: var(--white-font)
+}
+
+#contact-main {
+    font-family: var(--Cormorand);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#contact-main h1 {
+    font-size: 9.6rem;
+    margin: 3rem;
+}
+
+#contact-container {
+    width: 110rem;
+    height: 60rem;
+    justify-content: center;
+    align-items: center;
+}
+
+address {
+    font-style: normal;
+}
+
+#map-container {
+    flex-direction: column;
+
+    width: 50rem;
+    height: 100%;
+    background-color: var(--white-font);
+}
+
+#map-container h2, #form-container h2 {
+    align-self: start;
+    font-size: 3rem;
+    margin: 1rem;
+
+}
+
+#form-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60rem;
+    height: 100%;
+    background-color: var(--semi-transparent-bg);
+}
+
+#contact-form {
+    width: 70%;
+    height: 90%;
+    justify-content: space-between;
+    color: var(--white-font);
+}
+
+.form-input {
+    flex-direction: column;
+}
+
+.form-input input, .form-input textarea {
+
+    border: none;
+    background-color: var(--white-font);
+    color: var(--black-font);
+    box-shadow: 0.2rem 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.25);
+    font-family: var(--Raleway);
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+#message {
+    height: 12rem;
+}
+
+iframe {
+    border: none;
+    flex-grow: 1;
+
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#submit-button {
+    font-size: 3rem;
+    height: 5rem;
+    width: 15rem;
+    opacity: 1; 
+    align-self: flex-end;
+    transform: translateY(0);
+}
+
+#submit-button:after {
+    top: .5rem;
+}
+
+
+
+
 @media only screen and (max-width: 1200px) {
 
+    #contact-container {
+        width: 110rem;
+        height: 60rem;
+    }
     h1,
     h2 {
         font-size: 8rem;
@@ -383,10 +513,11 @@ h1.active, #discover-button.active {
         display: none;
     }
 
-    h1, h2{
+    h1,
+    h2 {
         font-size: 4rem;
     }
-    
+
     #logo {
         left: 50%;
     }
@@ -423,6 +554,10 @@ h1.active, #discover-button.active {
 
     .flex-container {
         flex-direction: ;
+    }
+
+    #gallery ul {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     }
 
     #gallery .flex-container {
