@@ -15,6 +15,27 @@ function scaling() {
   body.style.paddingBottom = `${footer.offsetHeight}px`;
 }
 
+function revealOnLoad() {
+ 
+    const loadReveal = document.querySelectorAll('.load-reveal');
+    loadReveal.forEach((element) => element.classList.add('active'));
+}
+
+function revealOnScroll() {  
+    
+    const scrollReveal = document.querySelectorAll('.reveal') 
+    console.log(window.scrollY)
+    scrollReveal.forEach((element) => {
+        
+        var top = element.getBoundingClientRect().top;
+        
+        if (window.innerHeight >= top + window.innerHeight / 3) {
+
+            element.classList.add('active');
+        }
+    })
+}
+
 function logoShrink() {
   const logo = document.querySelector("#logo");
   paths = logo.querySelectorAll('path');
@@ -95,19 +116,24 @@ function resizeScrollCorrections() {
   sidebarEffects(sidebar, bg);
   scaling();
   parallaxScroll();
+  revealOnScroll();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   resizeScrollCorrections();
+  revealOnLoad();
+
   if (window.scrollY > 0) {
     document.querySelector('#logo').style.transition = '0s'
   }
 });
 
 window.onscroll = function () {
+
   resizeScrollCorrections();
 };
 
 window.onresize = function () {
+
   resizeScrollCorrections();
 };

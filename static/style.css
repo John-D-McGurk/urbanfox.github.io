@@ -44,6 +44,17 @@ a img:hover {
     transition: transform 0.5s;
 }
 
+.reveal {
+    opacity: 0;
+    transform: translateX(-15rem);
+    transition: 1.5s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 header {
     display: flex;
     justify-content: right;
@@ -62,6 +73,7 @@ header {
 
 h1 {
     margin-top: calc(8vh + 30rem);
+    transition: 1s;
 }
 
 h1,
@@ -136,6 +148,11 @@ h2 {
     transform: translate(-50%, -50%);
     transition: 1s;
     z-index: 15;
+    opacity: 0;
+}
+
+#logo.active {
+    opacity: 1;
 }
 
 #logo path {
@@ -167,6 +184,14 @@ h2 {
 
 #beside-sidebar-content {
     width: 50%;
+}
+
+#beside-sidebar-content img {
+    transform: translateX(15rem);
+}
+
+#beside-sidebar-content img.active {
+    transform: translateX(0);
 }
 
 
@@ -203,6 +228,16 @@ h2 {
     right: 30px;
 }
 
+h1, #discover-button{
+    opacity: 0;
+    transform: translateY(150px);
+}
+
+h1.active, #discover-button.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 #title,
 #about {
     font-family: 'Cormorand Garamont';
@@ -228,6 +263,11 @@ h2 {
 #about p {
     min-height: fit-content;
     font-weight: 400;
+    transform: translateX(-15rem);
+}
+
+#about p.active {
+    transform: translate(0);
 }
 
 .parallax {
@@ -246,16 +286,16 @@ h2 {
 
 }
 
+.parallax img.active {
+
+}
+
 .section-spacing {
     color: #FFF;
     padding: 8rem 20rem;
     font-family: Raleway;
     font-weight: 100;
 }
-
-
-
-
 
 #gallery .flex-container {
     flex-direction: column;
@@ -267,6 +307,10 @@ h2 {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-gap: 5rem;
     list-style: none;
+}
+
+#gallery ul li {
+    transform: translateX(0);
 }
 
 #gallery ul li img {
@@ -386,7 +430,7 @@ h2 {
     }
 
     .section-spacing {
-        padding: 6rem 2rem;
+        padding: 6rem 6rem;
     }
 
     #socials-footer {
@@ -406,7 +450,8 @@ h2 {
     }
 
     #mobile-buttons img {
-        height: 2rem;
-        padding: 3rem ;
+        width: 3rem;
+        max-width: 15vw;
+        padding: 3rem 0;
     }
 }
