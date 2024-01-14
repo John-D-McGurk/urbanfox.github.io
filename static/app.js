@@ -9,45 +9,39 @@ function scaling() {
 
   besideSidebarContent.style.cssText = `padding-top: ${title_section.offsetHeight}px; height: ${about_section.offsetHeight}px`;
 
-
   body.style.paddingBottom = `${footer.offsetHeight}px`;
 }
 
 function revealOnLoad() {
- 
-    const loadReveal = document.querySelectorAll('.load-reveal');
-    loadReveal.forEach((element) => element.classList.add('active'));
+  const loadReveal = document.querySelectorAll(".load-reveal");
+  loadReveal.forEach((element) => element.classList.add("active"));
 }
 
-function revealOnScroll() {  
-    
-    const scrollReveal = document.querySelectorAll('.reveal') 
-    console.log(window.scrollY)
-    scrollReveal.forEach((element) => {
-        
-        var top = element.getBoundingClientRect().top;
-        
-        if (window.innerHeight >= top + window.innerHeight / 3) {
+function revealOnScroll() {
+  const scrollReveal = document.querySelectorAll(".reveal");
+  console.log(window.scrollY);
+  scrollReveal.forEach((element) => {
+    var top = element.getBoundingClientRect().top;
 
-            element.classList.add('active');
-        }
-    })
+    if (window.innerHeight >= top + window.innerHeight / 3) {
+      element.classList.add("active");
+    }
+  });
 }
 
 function logoShrink() {
   const logo = document.querySelector("#logo");
-  paths = logo.querySelectorAll('path');
+  paths = logo.querySelectorAll("path");
 
   if (window.scrollY > 0) {
     logo.style.cssText =
       "top: 0%; left: 0%; height: 6rem; width: 6rem; transform: translate(1rem, 1rem);";
     paths.forEach((path) => {
-        path.style.fill = '#d9d9d9'
+      path.style.fill = "#d9d9d9";
     });
-      
   } else {
     paths.forEach((path) => {
-        path.style.fill = ''
+      path.style.fill = "";
     });
     logo.style.cssText = "";
   }
@@ -63,12 +57,17 @@ function contentFade(maskContainer, maskFadeDistance) {
 }
 
 function parallaxScroll() {
-  const parallaxImg = document.querySelector("#parallax1");
+  const parallaxImg = document.querySelectorAll(".parallax-object");
   const parallaxContainer = document.querySelector(".parallax");
 
-  scrollAmount = (window.scrollY - (parallaxContainer.offsetTop - (window.innerHeight / 2))) / 2 + window.innerWidth / 5;
+  scrollAmount =
+    (parallaxContainer.getBoundingClientRect().top - window.innerHeight / 4) / 2;
 
-  parallaxImg.style.top = `-${scrollAmount}px`;
+    let imgTop = -parallaxContainer.offsetHeight / 2 -
+
+    console.log(`scroll:${scrollAmount}`)
+
+  parallaxImg.forEach((element) => (element.style.top = `${-parallaxContainer.offsetHeight / 4 - element.offsetHeight / 4 - scrollAmount}px`));
 }
 
 function sidebarEffects(sidebar, bg) {
@@ -86,7 +85,7 @@ function sidebarEffects(sidebar, bg) {
   let maskFadeDistance = maskContainer.offsetHeight - distanceTilMask;
 
   sidebarBG.style.height = `${Math.ceil(maskContainer.offsetHeight) + 1}px`;
-  
+
   if (window.scrollY >= distanceToBGLock) {
     sidebarSocials.style.cssText = `position: absolute; top: ${
       sidebarBG.offsetHeight - sidebarSocials.clientHeight
@@ -102,6 +101,42 @@ function sidebarEffects(sidebar, bg) {
     bg.forEach((element) => (element.style.cssText = ""));
   }
 }
+
+function carousel() {
+  const slides = document.querySelectorAll(".parallax-object");
+
+  slides.forEach(
+    (slide, idx) => (slide.style.transform = `translate(${idx * 100}vw)`)
+  );
+
+  let currentSlide = 0;
+  let maxSlide = slides.length - 1;
+  const nextSlide = document.querySelector(".btn-next");
+  const prevSlide = document.querySelector(".btn-prev");
+
+  nextSlide.addEventListener("click", () => {
+    if (currentSlide === maxSlide) {
+      currentSlide = 0;
+    } else {
+      currentSlide++;
+    }
+    slides.forEach((slide, idx) => {
+      slide.style.transform = `translateX(${100 * (idx - currentSlide)}%)`;
+    });
+  });
+
+  prevSlide.addEventListener("click", () => {
+    if (currentSlide === 0) {
+      currentSlide = maxSlide;
+    } else {
+      currentSlide--;
+    }
+    slides.forEach((slide, idx) => {
+      slide.style.transform = `translateX(${100 * (idx - currentSlide)}%)`;
+    });
+  });
+}
+
 
 function resizeScrollCorrections() {
   const bg = [
@@ -120,18 +155,17 @@ function resizeScrollCorrections() {
 document.addEventListener("DOMContentLoaded", () => {
   resizeScrollCorrections();
   revealOnLoad();
+  carousel();
 
   if (window.scrollY > 0) {
-    document.querySelector('#logo').style.transition = '0s'
+    document.querySelector("#logo").style.transition = "0s";
   }
 });
 
 window.onscroll = function () {
-
   resizeScrollCorrections();
 };
 
 window.onresize = function () {
-
   resizeScrollCorrections();
 };
