@@ -53,7 +53,7 @@ a img:hover {
 .reveal {
     opacity: 0;
     transform: translateX(-15rem);
-    transition: 1.5s;
+    transition: transform 1.5s, opacity 1.5s;
 }
 
 .reveal.active {
@@ -79,7 +79,7 @@ header {
 
 h1 {
     margin-top: calc(8vh + 30rem);
-    transition: 1s;
+    transition: transform 1s, opacity 1s;
 }
 
 h1,
@@ -214,8 +214,8 @@ h2 {
     background: var(--button-bg);
     border: 0;
     border-radius: 0.7rem;
-    font-family: unset;  
-    cursor: pointer;   
+    font-family: unset;
+    cursor: pointer;
     overflow: hidden;
     transition: 0.5s;
     display: inline-block;
@@ -354,6 +354,7 @@ h1.active,
 }
 
 #footer {
+    height: 30rem;
     font-family: var(--Cormorand);
     background-color: var(--footer-bg);
     color: var(--white-font);
@@ -361,19 +362,25 @@ h1.active,
     bottom: 0;
     width: 100%;
     text-align: center;
-    padding: 4rem 0;
+        align-items: center;
+    justify-content: space-around;
+}
+
+#footer h2 {
+    font-size: 5rem;
+    font-weight: 800;
 }
 
 #socials-footer {
-    padding: 2rem;
-
-
+    display: flex;
+    justify-content: space-between;
+    width: 20rem;
 }
 
 #socials-footer img {
-    height: 6rem;
-    margin: 6rem 10rem;
+    height: 3rem;
 }
+
 
 #mobile-buttons {
     display: none;
@@ -397,9 +404,21 @@ h1.active,
 
 #contact-container {
     width: 110rem;
-    height: 60rem;
+    height: 70rem;
     justify-content: center;
     align-items: center;
+    padding-bottom: 5rem;
+}
+
+#contact-socials {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    padding: 3rem 0;
+}
+
+#contact-socials img {
+    height: 2.5rem;
 }
 
 address {
@@ -408,13 +427,23 @@ address {
 
 #map-container {
     flex-direction: column;
-    
+    opacity: 0;
     width: 50rem;
     height: 100%;
     background-color: var(--white-font);
+    transition: transform 2s ease-out, opacity 2s ease-out;
+    transform: translateX(-50%);
 }
 
-#map-container h2, #form-container h2 {
+
+#map-container.active {
+    opacity: 1;
+    transform: translateX(0);
+
+}
+
+#map-container h2,
+#form-container h2 {
     align-self: start;
     font-size: 3rem;
     margin: 1rem;
@@ -428,13 +457,20 @@ address {
 #form-container {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 60rem;
     height: 100%;
     background-color: var(--semi-transparent-bg);
+    transform: translateX(50%);
+    transition: transform 2s ease-out, opacity 2s ease-out;
+}
+
+#form-container.active {
+    transform: translateX(0);
 }
 
 #contact-form {
+    padding-top: 1rem;
     width: 70%;
     height: 90%;
     justify-content: space-between;
@@ -445,7 +481,8 @@ address {
     flex-direction: column;
 }
 
-.form-input input, .form-input textarea {
+.form-input input,
+.form-input textarea {
     outline-color: transparent;
     border: none;
     background-color: var(--white-font);
@@ -476,7 +513,7 @@ iframe {
     font-size: 3rem;
     height: 5rem;
     width: 15rem;
-    opacity: 1; 
+    opacity: 1;
     align-self: flex-end;
     transform: translateY(0);
 }
@@ -492,7 +529,26 @@ iframe {
 
     #contact-container {
         width: 9%;
-        height: 40rem;
+        height: 50rem;
+    }
+
+    #contact-socials {
+        width: 70%;
+    }
+
+    #submit-button {
+        height: 3.5rem;
+        width: 10rem;
+        font-size: 2rem;
+    }
+
+    #submit-button:after {
+        top: .35rem;
+
+    }
+
+    #submit-button:hover:after {
+        transform: translateX(50%);
     }
 
     .form-input input {
@@ -517,6 +573,16 @@ iframe {
         padding: 0 3rem 12rem 3rem;
     }
 
+    #footer {
+        height: auto;
+        flex-direction: column;
+        padding-top: 3rem;
+    }
+
+    #socials-footer {
+        transform: translateX(-90%);
+    }
+
     #socials-footer img {
         margin: 4rem 8rem;
     }
@@ -529,7 +595,7 @@ iframe {
 
     #contact-container {
         flex-direction: column;
-        height: 110rem;
+        height: 120rem;
     }
 
     #map-container {
@@ -540,10 +606,10 @@ iframe {
 
     #form-container {
         width: 35rem;
-        height: 50rem;
+        height: 60rem;
         margin-bottom: 6rem;
     }
-    
+
     .header-img {
         display: none;
     }
@@ -587,9 +653,6 @@ iframe {
         transform: translateX(-25%)
     }
 
-    .flex-container {
-        flex-direction: ;
-    }
 
     #gallery ul {
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -603,7 +666,12 @@ iframe {
         padding: 6rem 6rem;
     }
 
-    #socials-footer {
+    #footer{
+        margin-bottom: 9rem;
+    }
+
+
+    #socials-footer-div {
         display: none;
     }
 

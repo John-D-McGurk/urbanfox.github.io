@@ -13,7 +13,19 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,600;0,800;0,900;1,200;1,300;1,400;1,600;1,800&display=swap"
         rel="stylesheet">
 
-    <script src="static/app.js"></script>
+    <script>
+        function revealOnLoad() {
+
+            const loadReveal = document.querySelectorAll('.load-reveal');
+            loadReveal.forEach((element) => element.classList.add('active'));
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            revealOnLoad();
+        });
+
+    </script>
     <link rel="stylesheet" href="static/style.css" />
 </head>
 
@@ -46,12 +58,12 @@
                 fill="#1F1F1E" />
         </svg>
         <section id="contact-main" class="flex-container">
-            <h1 class="active">Get in touch</h1>
+            <h1 class="load-reveal">Get in touch</h1>
             <div id="contact-container" class="flex-container">
 
-                <div id="map-container" class="flex-container">
+                <div id="map-container" class="flex-container load-reveal">
                     <h2>Where to find us</h2>
-                    <iframe
+                    <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1679.0387151790485!2d-2.3002828158231097!3d53.4770501734088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bae420ceb3737%3A0x2cd94d736549f8ec!2sShots%20Media%20City!5e0!3m2!1sen!2sno!4v1705146372195!5m2!1sen!2sno"
                         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <address>
@@ -62,26 +74,33 @@
                         Salford M50 2Gz
                     </address>
                 </div>
-                <div id="form-container" class="flex-container">
-                    
-                <form action="" id="contact-form">
-                    <h2>Send us an E-mail</h2>
-                    <div class="form-input flex-container">
-                        <label for="name">Name</label>
-                        <input id="name" type="text">
+                <div id="form-container" class="flex-container load-reveal">
+
+                    <form action="" id="contact-form">
+                        <h2>Send us an E-mail</h2>
+                        <div class="form-input flex-container">
+                            <label for="name">Name</label>
+                            <input id="name" type="text">
+                        </div>
+                        <div class="form-input flex-container">
+                            <label for="email">E-mail</label>
+                            <input id="email" type="email">
+                        </div>
+                        <div class="form-input flex-container">
+                            <label for="message">Message</label>
+                            <textarea name="" id="message" cols="30" rows="10"></textarea>
+                        </div>
+                        <button id="submit-button" type="submit" class="button">Send</button>
+                    </form>
+
+                    <div id="contact-socials">
+                        <a href=""><img src="static/images/facebook.svg" alt="" /></a>
+                        <a href=""><img src="static/images/instagram.svg" alt="" /></a>
+                        <a href=""><img src="static/images/x.svg" alt="" /></a>
                     </div>
-                    <div class="form-input flex-container">
-                        <label for="email">E-mail</label>
-                        <input id="email" type="email">
-                    </div>
-                    <div class="form-input flex-container">
-                        <label for="message">Message</label>
-                        <textarea name="" id="message" cols="30" rows="10"></textarea>
-                    </div>
-                   <button id="submit-button" type="submit" class="button">Send</button>
-                </form></div>
+                </div>
             </div>
-            </div>
+
         </section>
     </section>
 
