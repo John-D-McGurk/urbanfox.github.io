@@ -667,9 +667,12 @@ iframe {
     }
 
     #footer{
-        margin-bottom: 9rem;
+        padding-bottom: 9rem;
     }
 
+    #footer h2 {
+        font-size: 4rem;
+    }
 
     #socials-footer-div {
         display: none;
