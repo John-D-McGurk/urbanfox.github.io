@@ -344,7 +344,10 @@ h1.active,
     display: flex;
     justify-content: end;
     width: 33vw;
+}
 
+.testimonial-social img {
+    width: 3.5rem;
 }
 
 .testimonial-social img:hover {
@@ -364,7 +367,6 @@ h1.active,
     color: var(--white-font);
     z-index: 10;
     cursor: pointer;
-
     font-size: 5rem;
 }
 

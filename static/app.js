@@ -60,12 +60,20 @@ function parallaxScroll() {
   const parallaxImg = document.querySelectorAll(".parallax-object");
   const parallaxContainer = document.querySelector(".parallax");
 
+    const carouselBtns = document.querySelectorAll('.carousel-btn');
+
+
+
   scrollAmount =
     (parallaxContainer.getBoundingClientRect().top - window.innerHeight / 4) / 4;
 
+    carouselBtns.forEach((button) => {
+        button.style.top = `${(parallaxContainer.offsetHeight / 2) - (button.offsetHeight / 2) - scrollAmount}px`
+        console.log((parallaxContainer.offsetHeight / 2) - (button.offsetHeight / 2) + scrollAmount)
+    });
+
     let imgTop = -parallaxContainer.offsetHeight / 2 -
 
-    console.log(`scroll:${scrollAmount}`)
 
   parallaxImg.forEach((element) => (element.style.top = `${-parallaxContainer.offsetHeight / 4 - element.offsetHeight / 4 - scrollAmount}px`));
 }
