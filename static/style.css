@@ -296,21 +296,21 @@ h1.active,
     position: relative;
     height: 50vh;
     overflow: hidden;
-    width: 100%;    
-    background-color:#D55D2A;
-    box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.55) inset;
+    width: 100%;
+    background-color: #D55D2A;
+    box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.55) inset;
 }
 
 .parallax-inner {
     position: relative;
     display: flex;
-    justify-content: center;    
+    justify-content: center;
 
 }
 
 .parallax-object {
     width: 100%;
-    height:150vh;
+    height: 150vh;
     position: absolute;
     transition: transform 0.5s;
     display: flex;
@@ -328,7 +328,7 @@ h1.active,
 
 .testimonial-user {
     align-self: flex-end;
-    
+
 }
 
 /*.testimonial-social-div {
@@ -336,11 +336,9 @@ h1.active,
     justify-content: space-between;
 }*/
 
-.parallax-object img {
+.parallax-object img {}
 
-}
-
-.testimonial-social-div { 
+.testimonial-social-div {
     display: flex;
     justify-content: end;
     width: 33vw;
@@ -355,7 +353,7 @@ h1.active,
     cursor: pointer;
 }
 
-.testimonial-social-div * {
+.parallax-object .testimonial-social-div * {
     padding: 0;
 }
 
@@ -372,17 +370,15 @@ h1.active,
 
 .carousel-btn:active {
     transform: scale(1.1);
-  }
-  
-  .btn-prev {
-    top: 45%;
+}
+
+.btn-prev {
     left: 2%;
-  }
-  
-  .btn-next {
-    top: 45%;
+}
+
+.btn-next {
     right: 2%;
-  }
+}
 
 .section-spacing {
     color: #FFF;
@@ -436,7 +432,7 @@ h1.active,
     bottom: 0;
     width: 100%;
     text-align: center;
-        align-items: center;
+    align-items: center;
     justify-content: space-around;
 }
 
@@ -727,6 +723,17 @@ iframe {
         transform: translateX(-25%)
     }
 
+    .parallax-object * {
+        padding: 0 20vw;
+    }
+    
+    .btn-prev {
+        left: 1%;
+    }
+    
+    .btn-next {
+        right: 1%;
+    }
 
     #gallery ul {
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -740,7 +747,7 @@ iframe {
         padding: 6rem 6rem;
     }
 
-    #footer{
+    #footer {
         padding-bottom: 9rem;
     }
 
