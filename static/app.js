@@ -61,7 +61,7 @@ function parallaxScroll() {
   const parallaxContainer = document.querySelector(".parallax");
 
   scrollAmount =
-    (parallaxContainer.getBoundingClientRect().top - window.innerHeight / 4) / 2;
+    (parallaxContainer.getBoundingClientRect().top - window.innerHeight / 4) / 4;
 
     let imgTop = -parallaxContainer.offsetHeight / 2 -
 
