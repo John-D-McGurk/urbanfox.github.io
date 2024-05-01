@@ -65,21 +65,6 @@ function parallaxScroll() {
     parallaxContainer.getBoundingClientRect().top -
     (window.innerHeight - parallaxContainer.offsetHeight) / 2;
 
-  // carouselBtns.forEach((button) => {
-  //   button.style.top = `${
-  //     parallaxContainer.offsetHeight / 2 -
-  //     button.offsetHeight / 2 -
-  //     scrollAmount
-  //   }px`;
-  //   console.log(
-  //     parallaxContainer.offsetHeight / 2 -
-  //       button.offsetHeight / 2 +
-  //       scrollAmount
-  //   );
-  // });
-
-  // let imgTop = -parallaxContainer.offsetHeight / 2 -
-
   parallaxImg.style.top = `${
     parallaxContainer.offsetHeight / 2 -
     parallaxImg.offsetHeight / 2 -
@@ -120,7 +105,7 @@ function sidebarEffects(sidebar, bg) {
 }
 
 function carousel() {
-  const slides = document.querySelectorAll(".parallax-object");
+  const slides = document.querySelectorAll(".carousel-object");
 
   slides.forEach(
     (slide, idx) => (slide.style.transform = `translate(${idx * 100}vw)`)
