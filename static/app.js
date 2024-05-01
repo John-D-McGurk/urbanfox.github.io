@@ -19,7 +19,6 @@ function revealOnLoad() {
 
 function revealOnScroll() {
   const scrollReveal = document.querySelectorAll(".reveal");
-  console.log(window.scrollY);
   scrollReveal.forEach((element) => {
     var top = element.getBoundingClientRect().top;
 
@@ -57,25 +56,35 @@ function contentFade(maskContainer, maskFadeDistance) {
 }
 
 function parallaxScroll() {
-  const parallaxImg = document.querySelectorAll(".parallax-object");
+  const parallaxImg = document.querySelector(".parallax-object");
   const parallaxContainer = document.querySelector(".parallax");
 
-    const carouselBtns = document.querySelectorAll('.carousel-btn');
-
-
+  const carouselBtns = document.querySelectorAll(".carousel-btn");
 
   scrollAmount =
-    (parallaxContainer.getBoundingClientRect().top - window.innerHeight / 4) / 4;
+    parallaxContainer.getBoundingClientRect().top -
+    (window.innerHeight - parallaxContainer.offsetHeight) / 2;
 
-    carouselBtns.forEach((button) => {
-        button.style.top = `${(parallaxContainer.offsetHeight / 2) - (button.offsetHeight / 2) - scrollAmount}px`
-        console.log((parallaxContainer.offsetHeight / 2) - (button.offsetHeight / 2) + scrollAmount)
-    });
+  // carouselBtns.forEach((button) => {
+  //   button.style.top = `${
+  //     parallaxContainer.offsetHeight / 2 -
+  //     button.offsetHeight / 2 -
+  //     scrollAmount
+  //   }px`;
+  //   console.log(
+  //     parallaxContainer.offsetHeight / 2 -
+  //       button.offsetHeight / 2 +
+  //       scrollAmount
+  //   );
+  // });
 
-    let imgTop = -parallaxContainer.offsetHeight / 2 -
+  // let imgTop = -parallaxContainer.offsetHeight / 2 -
 
-
-  parallaxImg.forEach((element) => (element.style.top = `${-parallaxContainer.offsetHeight / 4 - element.offsetHeight / 4 - scrollAmount}px`));
+  parallaxImg.style.top = `${
+    parallaxContainer.offsetHeight / 2 -
+    parallaxImg.offsetHeight / 2 -
+    scrollAmount / 4
+  }px`;
 }
 
 function sidebarEffects(sidebar, bg) {
@@ -144,7 +153,6 @@ function carousel() {
     });
   });
 }
-
 
 function resizeScrollCorrections() {
   const bg = [
