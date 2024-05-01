@@ -89,6 +89,7 @@ h2 {
 
 h2 {
     margin-top: 0;
+    margin-bottom: 4rem;
     font-weight: 100;
 }
 
@@ -102,7 +103,9 @@ h2 {
 #bg-image {
     object-fit: cover;
     z-index: -2;
-    opacity: 0.8;
+    opacity: 0.3;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
 }
 
 #bg-gradient {
@@ -125,8 +128,8 @@ h2 {
 
 
 #beside-sidebar-content img {
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 80%;
+    max-height: 40%;
 }
 
 #sidebar-bg {
@@ -402,11 +405,16 @@ h1.active,
 
 #gallery ul li {
     transform: translateX(0);
+    overflow: hidden;
+    height: 40rem;
+    display: flex;
+    justify-content: center;
 }
 
 #gallery ul li img {
-    max-width: 100%;
-}
+object-fit: cover;
+text-align: center;
+max-height: 100%;}
 
 #main-bg {
     object-fit: cover;
