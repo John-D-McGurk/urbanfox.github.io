@@ -81,7 +81,7 @@ function logoShrink() {
 
   if (window.scrollY > 0) {
     logo.style.cssText =
-      "top: 0%; left: 0%; height: 6rem; width: 6rem; transform: translate(1rem, 1rem);";
+      "top: 0%; left: 0%; height: 6rem; transform: translate(1rem, 1rem);";
     paths.forEach((path) => {
       path.style.fill = "#d9d9d9";
     });
