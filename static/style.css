@@ -448,7 +448,8 @@ h1.active,
 object-fit: cover;
 text-align: center;
 max-height: 100%;
-max-width: 100%;}
+max-width: 100%;
+cursor: pointer;}
 
 #main-bg {
     object-fit: cover;
@@ -689,6 +690,7 @@ iframe {
     width: 5rem;
     border-radius: 50%;
     padding: 1.3rem;
+    cursor: pointer;
 }
 
 .modal-content {

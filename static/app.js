@@ -47,7 +47,7 @@ function modalOpener() {
   }
 
   modalContainer.addEventListener("click", (e) => {
-    if (!e.target.closest(".modal-inner")) {
+    if (!e.target.closest(".modal-content")) {
       closeModal();
     }
   });
