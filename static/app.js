@@ -12,6 +12,53 @@ function scaling() {
   body.style.paddingBottom = `${footer.offsetHeight}px`;
 }
 
+function modalOpener() {
+  const body = document.querySelector("body");
+  const modalCards = document.querySelectorAll(".modal-card");
+  const modalContainer = document.querySelector(".modal");
+  const modalWindow = modalContainer.querySelector(".modal-inner");
+
+  function closeModal() {
+    modalContainer.classList.remove("active");
+    body.style.overflow = "auto";
+  }
+
+  function openModal(modalCard) {
+    const imageSrc = modalCard.dataset.image;
+    const image = new Image();
+    image.src = `static/images/high_res/${imageSrc}.jpg`;
+    const button = document.createElement("button");
+    button.innerHTML = '<img src="static/images/close-x.svg" alt="">';
+    button.id = "modal-close";
+    button.addEventListener("click", closeModal);
+
+    modalContainer.classList.add("active");
+    modalWindow.innerHTML = "";
+
+    const modalContent = document.createElement("div");
+
+    modalContent.appendChild(image);
+    modalContent.appendChild(button);
+
+    modalContent.classList.add("modal-content");
+
+    modalWindow.appendChild(modalContent);
+    body.style.overflow = "hidden";
+  }
+
+  modalContainer.addEventListener("click", (e) => {
+    if (!e.target.closest(".modal-inner")) {
+      closeModal();
+    }
+  });
+
+  modalCards.forEach((modalCard) => {
+    modalCard.addEventListener("click", () => {
+      openModal(modalCard);
+    });
+  });
+}
+
 function revealOnLoad() {
   const loadReveal = document.querySelectorAll(".load-reveal");
   loadReveal.forEach((element) => element.classList.add("active"));
@@ -157,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
   resizeScrollCorrections();
   revealOnLoad();
   carousel();
+  modalOpener();
 
   if (window.scrollY > 0) {
     document.querySelector("#logo").style.transition = "0s";
