@@ -16,6 +16,7 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -224,26 +225,25 @@ h2 {
   transition: 0.5s;
 }
 
-.button:hover {
-  padding-right: 24px;
-  padding-left: 8px;
-}
-
 .button:hover:after {
   opacity: 1;
   right: 30px;
 }
 
 #discover-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 4rem;
   height: 8rem;
   width: 35rem;
 }
 
-h1,
+#discover-button:hover h1,
 #discover-button {
   opacity: 0;
   transform: translateY(150px);
+  color: var(--black-font);
 }
 
 h1.active,
@@ -320,10 +320,11 @@ h1.active,
   display: flex;
   justify-content: end;
   width: 33vw;
+  gap: 3rem;
 }
 
 .testimonial-social img {
-  width: 3.5rem;
+  width: 2.5rem;
 }
 
 .testimonial-quotes {
@@ -653,15 +654,15 @@ iframe {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 4rem;
-  right: 5rem;
+  top: 3rem;
+  right: 4rem;
   z-index: 100100;
   background: var(--slightly-transparent-bg);
   border: none;
-  height: 5rem;
-  width: 5rem;
+  height: 4rem;
+  width: 4rem;
   border-radius: 50%;
-  padding: 1.3rem;
+  padding: 1rem;
   cursor: pointer;
 }
 
@@ -700,6 +701,10 @@ iframe {
 
   #contact-socials {
     width: 70%;
+  }
+
+  .testimonial-social-div {
+    width: 90%;
   }
 
   #submit-button {
@@ -753,6 +758,10 @@ iframe {
   #discover-button {
     width: 25rem;
     font-size: 2.5rem;
+  }
+
+  #discover-button::after {
+    top: 23px;
   }
 
   .carousel-object {
