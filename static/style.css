@@ -417,7 +417,7 @@ h1.active,
 #gallery ul li {
   transform: translateX(0);
   overflow: hidden;
-  height: 40rem;
+  height: 30rem;
   display: flex;
   justify-content: center;
 }
